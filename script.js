@@ -28,7 +28,7 @@ const locations = [
     "button text": ["Buy 10 health (10 gold)", "Buy weapon (30 gold)", "Go to town square"],
     "button functions": [buyHealth, buyWeapon, goTown],
     text: "You enter the store."
-  }
+  },
 ];
 
 // initialize buttons
@@ -51,7 +51,7 @@ function goTown() {
 }
 
 function goStore() {
-update(locations[1]);
+  update(locations[1]);
 }
 
 function goCave() {
@@ -69,3 +69,6 @@ function buyHealth() {
 function buyWeapon() {
 
 }
+
+function fightSlime() {};
+function fightBeast() {};
