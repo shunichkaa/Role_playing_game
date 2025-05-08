@@ -44,8 +44,8 @@ function update(location) {
   button2.onclick = location["button functions"][1];
   button3.onclick = location["button functions"][2];
   text.innerText = location.text;
-}
 
+}
 
 function goTown() {
   update(locations[0]);
