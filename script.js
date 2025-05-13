@@ -88,13 +88,14 @@ function buyHealth() {
 function buyWeapon() {
   if (gold >= 30) {
     gold -= 30;
-    currentWeaponIndex++;
+    currentWeaponIndex += 1;
+
     let newWeapon = weapons[currentWeaponIndex];
 
     if (!newWeapon) {
       text.innerText = "You already have the most powerful weapon!";
       gold += 30;
-      currentWeaponIndex--;
+      currentWeaponIndex -= 1;
     } else {
       inventory.push(newWeapon.name);
       text.innerText = "You now have a " + newWeapon.name + ".";
