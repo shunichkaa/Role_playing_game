@@ -89,20 +89,8 @@ function buyWeapon() {
   if (gold >= 30) {
     gold -= 30;
     currentWeaponIndex++;
-
-    let newWeapon = weapons[currentWeaponIndex];
-
-    if (!newWeapon) {
-      text.innerText = "You already have the most powerful weapon!";
-      gold += 30;
-      currentWeaponIndex--;
-    } else {
-      inventory.push(newWeapon.name);
-      text.innerText = "You now have a " + newWeapon.name + ".";
-      goldText.innerText = gold;
-    }
-  } else {
-    text.innerText = "You do not have enough gold to buy a weapon.";
+    goldText.innerText = gold;
+    text.innerText = "You now have a new weapon.";
   }
 }
 
