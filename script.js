@@ -99,6 +99,7 @@ function buyWeapon() {
   }
 }
 
+
 function fightSlime() {
 
 }
