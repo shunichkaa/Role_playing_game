@@ -105,7 +105,16 @@ function buyWeapon() {
   }
 }
 
-function sellWeapon(){}
+function sellWeapon() {
+  if (inventory.length > 1) {
+    let soldWeapon = inventory.pop();
+    gold += 15;
+    goldText.innerText = gold;
+    text.innerText = "You sold your " + soldWeapon + ". In your inventory you have: " + inventory;
+  } else {
+    text.innerText = "Don't sell your only weapon!";
+  }
+}
 
 function fightSlime() {
 
