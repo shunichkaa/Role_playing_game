@@ -131,7 +131,8 @@ function sellWeapon() {
 }
 
 function fightSlime() {
-
+  fighting = 0;
+  goFight();
 }
 
 function fightBeast() {
@@ -142,4 +143,6 @@ function fightDragon() {
   console.log("Fighting dragon.");
 }
 
-function goFight (){}
+function goFight() {
+
+}
