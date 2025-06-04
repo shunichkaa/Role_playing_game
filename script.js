@@ -65,6 +65,12 @@ const locations = [
     text: "You are fighting a monster."
   }
 ];
+locations.push({
+  name: "kill monster",
+  "button text": ["Go to town square", "Go to town square", "Go to town square"],
+  "button functions": [goTown, goTown, goTown],
+  text: "The monster screams Arg! as it dies. You gain experience points and find gold."
+});
 
 // initialize buttons
 button1.onclick = goStore;
@@ -184,7 +190,6 @@ function defeatMonster() {
   xpText.innerText = xp;
   update(locations[4]);
 }
-
 
 function lose() {
 
