@@ -76,14 +76,12 @@ const locations = [
     "button functions": [restart, restart, restart],
     text: "You die. &#x2620;"
   }
-
 ];
 
 // initialize buttons
 button1.onclick = goStore;
 button2.onclick = goCave;
 button3.onclick = fightDragon;
-
 
 function update(location) {
   monsterStats.style.display = "none";
@@ -181,7 +179,7 @@ function attack() {
   monsterHealth -= weapons[currentWeaponIndex].power + Math.floor(Math.random() * xp) + 1;
   healthText.innerText = health;
   monsterHealthText.innerText = monsterHealth;
-   if (health <= 0) {
+  if (health <= 0) {
     lose();
   } else if (monsterHealth <= 0) {
     if (fighting === 2) {
@@ -206,6 +204,10 @@ function defeatMonster() {
 
 function lose() {
   update(locations[5]);
+}
+
+function winGame() {
+  update(locations[6]);
 }
 
 function restart() {
