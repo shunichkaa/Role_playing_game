@@ -183,7 +183,7 @@ function attack() {
   text.innerText += " You attack it with your " + weapons[currentWeaponIndex].name + ".";
   health -= getMonsterAttackValue(monsters[fighting].level);
   if (isMonsterHit()) {
-    monsterHealth -= weapons[currentWeaponIndex].power + Math.floor(Math.random() * xp) + 1;    
+    monsterHealth -= weapons[currentWeaponIndex].power + Math.floor(Math.random() * xp) + 1;
   } else {
     text.innerText += " You miss.";
   }
@@ -197,6 +197,9 @@ function attack() {
     } else {
       defeatMonster();
     }
+  }
+  if (Math.random() <= .1) {
+
   }
 }
 
