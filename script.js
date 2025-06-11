@@ -186,10 +186,10 @@ function goFight() {
 
 function attack() {
   text.innerText = "The " + monsters[fighting].name + " attacks.";
-  text.innerText += " You attack it with your " + weapons[currentWeapon].name + ".";
+  text.innerText += " You attack it with your " + weapons[currentWeaponIndex].name + ".";
   health -= getMonsterAttackValue(monsters[fighting].level);
   if (isMonsterHit()) {
-    monsterHealth -= weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;    
+    monsterHealth -= weapons[currentWeaponIndex].power + Math.floor(Math.random() * xp) + 1;    
   } else {
     text.innerText += " You miss.";
   }
@@ -265,6 +265,9 @@ function pickEight() {
 }
 
 function pick(guess) {
-const numbers = [];
+  const numbers = [];
+  while (numbers.length < 10) {
+  // код внутри цикла
+}
 
 }
