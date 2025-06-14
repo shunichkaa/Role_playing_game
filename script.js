@@ -266,8 +266,15 @@ function pickEight() {
 
 function pick(guess) {
   const numbers = [];
-while (numbers.length < 10) {
-  numbers.push(Math.floor(Math.random() * 11));
-}
-
+  while (numbers.length < 10) {
+    numbers.push(Math.floor(Math.random() * 11));
   }
+  text.innerText = "You picked " + guess + ". Here are the random numbers:";
+  text.innerText += " " + numbers.join(", ");
+
+  if (numbers.includes(guess)) {
+    text.innerText += "\nYou win!";
+  } else {
+    text.innerText += "\nYou lose!";
+  }
+}
