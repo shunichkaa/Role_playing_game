@@ -16,20 +16,29 @@ const goldText = document.querySelector("#goldText");
 const monsterStats = document.querySelector("#monsterStats");
 const monsterName = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
-
 const weapons = [
   { name: 'stick', power: 5 },
   { name: 'dagger', power: 30 },
   { name: 'claw hammer', power: 50 },
   { name: 'sword', power: 100 }
 ];
-
 const monsters = [
-  { name: "slime", level: 2, health: 15 },
-  { name: "fanged beast", level: 8, health: 60 },
-  { name: "dragon", level: 20, health: 300 }
-];
-
+  {
+    name: "slime",
+    level: 2,
+    health: 15
+  },
+  {
+    name: "fanged beast",
+    level: 8,
+    health: 60
+  },
+  {
+    name: "dragon",
+    level: 20,
+    health: 300
+  }
+]
 const locations = [
   {
     name: "town square",
@@ -67,11 +76,11 @@ const locations = [
     "button functions": [restart, restart, restart],
     text: "You die. &#x2620;"
   },
-  {
-    name: "win",
-    "button text": ["REPLAY?", "REPLAY?", "REPLAY?"],
-    "button functions": [restart, restart, restart],
-    text: "You defeat the dragon! YOU WIN THE GAME! &#x1F389;"
+  { 
+    name: "win", 
+    "button text": ["REPLAY?", "REPLAY?", "REPLAY?"], 
+    "button functions": [restart, restart, restart], 
+    text: "You defeat the dragon! YOU WIN THE GAME! &#x1F389;" 
   },
   {
     name: "easter egg",
@@ -81,6 +90,7 @@ const locations = [
   }
 ];
 
+// initialize buttons
 button1.onclick = goStore;
 button2.onclick = goCave;
 button3.onclick = fightDragon;
@@ -176,10 +186,10 @@ function goFight() {
 
 function attack() {
   text.innerText = "The " + monsters[fighting].name + " attacks.";
-  text.innerText += " You attack it with your " + weapons[currentWeaponIndex].name + ".";
+  text.innerText += " You attack it with your " + weapons[currentWeapon].name + ".";
   health -= getMonsterAttackValue(monsters[fighting].level);
   if (isMonsterHit()) {
-    monsterHealth -= weapons[currentWeaponIndex].power + Math.floor(Math.random() * xp) + 1;    
+    monsterHealth -= weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1;    
   } else {
     text.innerText += " You miss.";
   }
@@ -194,7 +204,7 @@ function attack() {
       defeatMonster();
     }
   }
-  if (Math.random() <= 0.1 && inventory.length !== 1) {
+  if (Math.random() <= .1 && inventory.length !== 1) {
     text.innerText += " Your " + inventory.pop() + " breaks.";
     currentWeaponIndex--;
   }
@@ -202,11 +212,12 @@ function attack() {
 
 function getMonsterAttackValue(level) {
   const hit = (level * 5) - (Math.floor(Math.random() * xp));
+  console.log(hit);
   return hit > 0 ? hit : 0;
 }
 
 function isMonsterHit() {
-  return Math.random() > 0.2 || health < 20;
+  return Math.random() > .2 || health < 20;
 }
 
 function dodge() {
@@ -254,13 +265,13 @@ function pickEight() {
 }
 
 function pick(guess) {
-  let randomNumbers = [];
+  const numbers = [];
   for (let i = 0; i < 10; i++) {
-    randomNumbers.push(Math.floor(Math.random() * 11));
+    numbers.push(Math.floor(Math.random() * 11));
   }
-  if (randomNumbers.includes(guess)) {
-    text.innerText = `You win! The numbers were ${randomNumbers.join(", ")}.`;
+  if (numbers.includes(guess)) {
+    text.innerText = `You win! The numbers were ${numbers.join(", ")}.`;
   } else {
-    text.innerText = `You lose! The numbers were ${randomNumbers.join(", ")}.`;
+    text.innerText = `You lose! The numbers were ${numbers.join(", ")}.`;
   }
 }
